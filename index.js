@@ -43,7 +43,7 @@ function initBot() {
         host: process.env.MC_HOST,
         port: parseInt(process.env.MC_PORT) || 25565,
         username: process.env.MC_USER,
-        version: false 
+        version:'26.3'
     });
 
     bot.on('spawn', () => {
