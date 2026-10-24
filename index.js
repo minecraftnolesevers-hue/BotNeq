@@ -85,10 +85,7 @@ function initBot() {
             lastAnnouncedDay = currentDay;
             const msg = `🌅 Một ngày mới đã bắt đầu! Đã qua ${currentDay} ngày trong server.`;
             bot.chat(msg);
-            
-            const channel = discordClient.channels.cache.get(process.env.DISCORD_CHANNEL_ID);
-            if (channel) channel.send(`**[HỆ THỐNG MC]** ${msg}`);
-        }
+}
 
         if (autoSleepEnabled && timeOfDay >= 12541 && timeOfDay <= 23458) {
             if (!bot.isSleeping) {
