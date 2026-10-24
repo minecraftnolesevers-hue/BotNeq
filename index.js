@@ -83,9 +83,10 @@ function initBot() {
 
         if (currentDay > lastAnnouncedDay && timeOfDay < 1000) {
             lastAnnouncedDay = currentDay;
-            const msg = `🌅 Một ngày mới đã bắt đầu! Đã qua ${currentDay} ngày trong server.`;
-            bot.chat(msg);
-}
+            const msg = `🌅 Ngày mới! Đã qua ${currentDay} ngày trong server.`;
+            bot.chat(msg); 
+            // Đã xóa lệnh gửi sang Discord ở đây để tránh spam
+        }
 
         if (autoSleepEnabled && timeOfDay >= 12541 && timeOfDay <= 23458) {
             if (!bot.isSleeping) {
@@ -93,10 +94,7 @@ function initBot() {
                     matching: block => bot.isABed(block),
                     maxDistance: 6
                 });
-                
-                if (bed) {
-                    bot.sleep(bed).catch(() => {});
-                }
+                if (bed) bot.sleep(bed).catch(() => {});
             }
         }
     });
